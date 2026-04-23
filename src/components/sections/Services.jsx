@@ -1,26 +1,31 @@
 import React from 'react';
 import { Rocket, Trees, RefreshCw, Layers } from 'lucide-react';
 
+import pattyIcon from '../../assets/images/patty.svg';
+import burgerIcon from '../../assets/images/Burger svg.svg';
+import sauceIcon from '../../assets/images/Sause.svg';
+import coffeeIcon from '../../assets/images/Coffee drink.svg';
+
 const conceptualServices = [
   {
     title: 'Smash Technique',
     description: 'Perfectly smashed patties for crispy edges and juicy centers',
-    icon: <span className="text-7xl md:text-[6rem]">🔥</span>,
+    icon: <img src={pattyIcon} alt="Patty" className="h-[120px] md:h-[150px] w-auto object-contain" />,
   },
   {
     title: 'Locally Sourced Ingredients',
     description: 'Fresh, high-quality ingredients sourced locally',
-    icon: <span className="text-7xl md:text-[6rem]">🥩</span>,
+    icon: <img src={burgerIcon} alt="Burger" className="h-[120px] md:h-[150px] w-auto object-contain" />,
   },
   {
     title: 'Pocket-Friendly Pricing',
     description: 'Premium taste without premium pricing',
-    icon: <span className="text-7xl md:text-[6rem]">💸</span>,
+    icon: <img src={sauceIcon} alt="Sauce" className="h-[120px] md:h-[150px] w-auto object-contain" />,
   },
   {
     title: 'Flavor-First Menu',
     description: 'Every burger is crafted for maximum taste, not just looks',
-    icon: <span className="text-7xl md:text-[6rem]">🍔</span>,
+    icon: <img src={coffeeIcon} alt="Coffee" className="h-[120px] md:h-[150px] w-auto object-contain" />,
   },
 ];
 
