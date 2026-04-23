@@ -10,6 +10,7 @@
 @layer base {
   body {
     @apply bg-cream text-navy font-sans antialiased overflow-x-hidden;
+    background-color: rgb(244, 238, 221) !important;
   }
   
   h1, h2, h3, h4, h5, h6 {

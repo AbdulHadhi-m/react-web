@@ -3,13 +3,38 @@ import SlickModule from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+import blueBurger1 from '../../assets/images/works/Blue Burger 1.png';
+import blueBurger2 from '../../assets/images/works/Blue Burger 2.png';
+import blueBurger3 from '../../assets/images/works/Blue Burger 3.png';
+import blueBurger4 from '../../assets/images/works/Blue Burger 4.png';
+import blueBurger5 from '../../assets/images/works/Blue Burger 5.png';
+import blueBurger6 from '../../assets/images/works/Blue Burger 6.png';
+import blueBurger7 from '../../assets/images/works/Blue Burger 7.png';
+import blueDrinks1 from '../../assets/images/works/Blue Drinks 1.png';
+import blueDrinks2 from '../../assets/images/works/Blue Drinks 2.png';
+import blueDrinks from '../../assets/images/works/Blue Drinks.png';
+import blueHotDog from '../../assets/images/works/Blue Hot dog.png';
+import blueLoadedFries1 from '../../assets/images/works/Blue Loaded fries 1.png';
+import blueLoadedFries2 from '../../assets/images/works/Blue loaded fries 2.png';
+import bluePassionFruit from '../../assets/images/works/Blue Passion fruit.png';
+
 const Slider = SlickModule?.default ?? SlickModule;
 
 const mockProjects = [
-  { name: 'KUVAN', logo: 'K', category: 'Brand Identity' },
-  { name: 'DAKHNII', logo: 'D', category: 'Packaging Design' },
-  { name: 'BREW', logo: 'B', category: 'Website Design' },
-  { name: '72MG', logo: '72', category: 'Studio' },
+  { name: 'Classic Blue Burger', image: blueBurger1, category: 'Burger' },
+  { name: 'Blue Signature', image: blueBurger2, category: 'Burger' },
+  { name: 'Blue Burger Deluxe', image: blueBurger3, category: 'Burger' },
+  { name: 'Blue Cheese Burger', image: blueBurger4, category: 'Burger' },
+  { name: 'Ultimate Blue Burger', image: blueBurger5, category: 'Burger' },
+  { name: 'Blue Bacon Burger', image: blueBurger6, category: 'Burger' },
+  { name: 'Blue Smash Burger', image: blueBurger7, category: 'Burger' },
+  { name: 'Refreshing Drinks 1', image: blueDrinks1, category: 'Beverage' },
+  { name: 'Refreshing Drinks 2', image: blueDrinks2, category: 'Beverage' },
+  { name: 'Signature Blue Drinks', image: blueDrinks, category: 'Beverage' },
+  { name: 'Special Hot Dog', image: blueHotDog, category: 'Hot Dog' },
+  { name: 'Loaded Fries', image: blueLoadedFries1, category: 'Sides' },
+  { name: 'Cheesy Loaded Fries', image: blueLoadedFries2, category: 'Sides' },
+  { name: 'Passion Fruit Drink', image: bluePassionFruit, category: 'Beverage' },
 ];
 
 const SliderArrow = ({ direction, onClick }) => (
@@ -80,10 +105,12 @@ const Works = () => {
         <Slider ref={sliderRef} {...sliderSettings}>
           {mockProjects.map((project) => (
             <div key={project.name} className="px-2 md:px-3">
-              <div className="relative aspect-video overflow-hidden rounded-[2rem] bg-black group">
-                <div className="flex h-full items-center justify-center text-8xl font-black text-white opacity-90 transition-transform duration-500 group-hover:scale-110 md:text-[12rem]">
-                  {project.logo}
-                </div>
+              <div className="relative aspect-[4/3] md:aspect-video overflow-hidden rounded-[2rem] bg-black group">
+                <img
+                  src={project.image}
+                  alt={project.name}
+                  className="h-full w-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-110"
+                />
 
                 <div className="absolute inset-0 flex items-center justify-center bg-navy/20 opacity-0 transition-opacity group-hover:opacity-100">
                   <div className="translate-y-4 transform rounded-full bg-cream px-8 py-3 text-xl font-bold text-navy transition-transform group-hover:translate-y-0">

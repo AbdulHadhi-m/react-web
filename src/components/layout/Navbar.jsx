@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import fillmoreLogo from '../../assets/images/Fillmore logo.png';
 
 const Navbar = () => {
   return (
@@ -10,8 +11,13 @@ const Navbar = () => {
            <div className="w-[4px] h-full bg-navy"></div>
            <div className="w-[4px] h-full bg-navy"></div>
         </div>
-        <div className="border-[4px] px-3 md:px-4 py-1.5 md:py-2 font-black text-lg md:text-2xl tracking-tighter shadow-sm font-sans border-navy bg-cream text-navy">
-           seventy two<span className="font-serif italic font-normal ml-1">mg.</span>
+        <div className="relative flex items-center justify-end border-[4px] pr-4 md:pr-6 py-1.5 md:py-2 w-[160px] md:w-[200px] font-black text-lg md:text-2xl tracking-tighter shadow-sm font-sans border-navy bg-cream text-navy">
+           <img 
+             src={fillmoreLogo} 
+             alt="Fillmore Logo" 
+             className="absolute -left-6 md:-left-8 -top-4 md:-top-8 w-16 h-16 md:w-24 md:h-24 object-contain drop-shadow-md" 
+           />
+           <span>Fillmore</span>
         </div>
       </Link>
     </nav>

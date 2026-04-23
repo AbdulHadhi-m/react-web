@@ -1,4 +1,9 @@
 import React from 'react';
+import windowSvg from '../../assets/images/Window.svg';
+import bulbSvg from '../../assets/images/Bulb.svg';
+import chairSvg from '../../assets/images/Chair.svg';
+import burgerImg from '../../assets/images/burger.png';
+import musicVideo from '../../assets/videos/Music.mp4';
 
 const Hero = () => {
   return (
@@ -7,129 +12,49 @@ const Hero = () => {
       {/* 3D Room Lines (Responsive Full Screen SVG) */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" preserveAspectRatio="none">
          {/* Corner Line */}
-         <line x1="20%" y1="0" x2="20%" y2="80%" stroke="rgb(0, 36, 104)" strokeWidth="4" />
+         <line x1="18%" y1="0" x2="18%" y2="80%" stroke="rgb(0, 36, 104)" strokeWidth="4" />
          {/* Floor Diagonal */}
-         <line x1="20%" y1="80%" x2="0" y2="100%" stroke="rgb(0, 36, 104)" strokeWidth="4" />
+         <line x1="18%" y1="80%" x2="0" y2="100%" stroke="rgb(0, 36, 104)" strokeWidth="4" />
          {/* Baseboard */}
-         <line x1="20%" y1="80%" x2="100%" y2="80%" stroke="rgb(0, 36, 104)" strokeWidth="4" />
+         <line x1="18%" y1="80%" x2="100%" y2="80%" stroke="rgb(0, 36, 104)" strokeWidth="4" />
          {/* Lower Floor Line */}
-         <line x1="10%" y1="90%" x2="100%" y2="90%" stroke="rgb(0, 36, 104)" strokeWidth="4" />
+         <line x1="9%" y1="90%" x2="100%" y2="90%" stroke="rgb(0, 36, 104)" strokeWidth="4" />
       </svg>
 
       {/* Window on the Left Wall */}
-      <div className="absolute top-[44%] left-[3%] w-[20%] h-[24%] sm:top-[40%] sm:left-[1.5%] sm:w-[12%] sm:h-[34%] pointer-events-none z-0 block">
-          <svg width="100%" height="100%" viewBox="0 0 100 200" preserveAspectRatio="none" className="stroke-navy fill-none stroke-[4.5px]">
-             {/* Outer Frame (Perspective Distorted) */}
-             <path d="M 10,30 L 90,0 L 90,200 L 10,170 Z" strokeLinejoin="round" />
-             <path d="M 20,40 L 80,17 L 80,183 L 20,160 Z" strokeLinejoin="round" />
-             {/* Panes */}
-             <line x1="50" y1="28" x2="50" y2="171" />
-             <line x1="15" y1="100" x2="85" y2="100" />
-          </svg>
+      <div className="absolute top-[2%] left-[-4%] w-[22%] h-[95%] md:top-[2%] md:left-[-4%] md:w-[22%] md:h-[95%] pointer-events-none z-0 block">
+          <img src={windowSvg} alt="Window" className="w-full h-full object-fill" />
       </div>
 
       {/* Hanging Lamp - Top Right */}
-      <div className="absolute top-[0] right-[4.5%] w-[52px] h-[170px] md:w-[92px] md:h-[285px] pointer-events-none z-10 block">
-         <svg viewBox="0 0 100 300" className="w-full h-full stroke-navy fill-cream stroke-[3.2px]">
-            {/* Cord */}
-            <line x1="50" y1="0" x2="50" y2="230" />
-            {/* Lampshade */}
-            <path d="M 20,230 L 80,230 L 95,260 L 5,260 Z" strokeLinejoin="round" />
-            <path d="M 5,260 C 5,275 95,275 95,260" />
-            {/* Bulb Base */}
-            <path d="M 40,268 C 40,285 60,285 60,268" />
-            {/* Action Lines (Light Rays) */}
-            <line x1="30" y1="285" x2="15" y2="310" strokeLinecap="round" />
-            <line x1="50" y1="290" x2="50" y2="320" strokeWidth="4" strokeLinecap="round" />
-            <line x1="70" y1="285" x2="85" y2="310" strokeLinecap="round" />
-         </svg>
+      <div className="absolute top-0 right-[5%] w-[120px] h-[280px] md:top-0 md:right-[4%] md:w-[220px] md:h-[480px] pointer-events-none z-10 block">
+         <img src={bulbSvg} alt="Bulb Lamp" className="w-full h-full object-contain object-top" />
       </div>
 
       {/* Shelf and Gramophone - Mid Right */}
-      <div className="absolute top-[47%] right-[3%] w-[120px] h-[96px] sm:w-[170px] sm:h-[130px] lg:top-[45%] lg:right-[1.5%] lg:w-[290px] lg:h-[220px] pointer-events-none z-10 block">
-         <svg viewBox="0 0 250 200" className="w-full h-full stroke-navy stroke-[3.2px] fill-cream">
-            {/* Musical Notes (floating above) */}
-            <path d="M 100,20 Q 110,10 115,25 Q 120,40 105,45 Z" fill="rgb(0, 36, 104)" stroke="none" />
-            <path d="M 125,40 Q 135,30 140,45 Q 145,60 130,65 Z" fill="rgb(0, 36, 104)" stroke="none" />
-            <path d="M 80,60 Q 90,50 95,65 Q 100,80 85,85 Z" fill="rgb(0, 36, 104)" stroke="none" />
-            <line x1="110" y1="15" x2="120" y2="5" />
-            <line x1="135" y1="35" x2="145" y2="25" />
-            <line x1="90" y1="55" x2="100" y2="45" />
-            
-            {/* Gramophone Horn */}
-            <path d="M 130,120 Q 140,40 210,30" fill="none" strokeWidth="5" strokeLinecap="round" />
-            <path d="M 210,30 C 220,10 240,30 220,50 C 200,70 190,40 210,30 Z" fill="none" strokeWidth="4" />
-            
-            {/* Needle Arm */}
-            <path d="M 110,120 L 80,100" fill="none" strokeLinecap="round" />
-            
-            {/* Gramophone Base */}
-            <rect x="100" y="120" width="80" height="40" rx="3" strokeLinejoin="round" />
-            <rect x="120" y="130" width="40" height="15" />
-            <circle cx="170" cy="140" r="5" className="fill-navy" />
-            
-            {/* Shelf */}
-            <rect x="10" y="160" width="230" height="10" strokeLinejoin="round" />
-            <path d="M 10,170 L 10,190 C 10,210 20,210 30,180" fill="none" />
-            <path d="M 240,170 L 240,190 C 240,210 230,210 220,180" fill="none" />
-         </svg>
+      <div className="absolute top-[40%] right-[0%] w-[200px] h-[160px] sm:top-[38%] sm:right-[0%] sm:w-[280px] sm:h-[220px] lg:top-[35%] lg:right-[0%] lg:w-[500px] lg:h-[380px] pointer-events-none z-10 block mix-blend-multiply">
+         <video 
+           src={musicVideo} 
+           autoPlay 
+           loop 
+           muted 
+           playsInline 
+           className="w-full h-full object-contain contrast-[1.2] brightness-[1.1]" 
+         />
       </div>
 
       {/* Table, Chairs & Moka Pot - Bottom Center Left */}
-      <div className="absolute bottom-[2%] left-[8%] w-[210px] h-[145px] sm:w-[300px] sm:h-[210px] md:bottom-[-2%] md:left-[10%] md:w-[540px] md:h-[375px] pointer-events-none z-10 block">
-         <svg viewBox="0 0 500 350" className="w-full h-full stroke-navy stroke-[3.2px] fill-cream">
-            {/* Left Chair */}
-            <g transform="translate(10, 60)">
-               <path d="M 80,120 C 60,80 100,80 80,120 Z" fill="none" strokeWidth="2" />
-               <ellipse cx="80" cy="110" rx="18" ry="35" />
-               <ellipse cx="80" cy="150" rx="40" ry="15" />
-               <line x1="80" y1="135" x2="80" y2="160" fill="none" />
-               {/* Legs */}
-               <path d="M 50,155 L 40,240" fill="none" strokeLinecap="round" />
-               <path d="M 110,155 L 120,220" fill="none" strokeLinecap="round" />
-            </g>
-            
-            {/* Right Chair */}
-            <g transform="translate(280, 60)">
-               <path d="M 80,120 C 60,80 100,80 80,120 Z" fill="none" strokeWidth="2"/>
-               <ellipse cx="80" cy="110" rx="18" ry="35" />
-               <ellipse cx="80" cy="150" rx="40" ry="15" />
-               <line x1="80" y1="135" x2="80" y2="160" fill="none"/>
-               {/* Legs */}
-               <path d="M 50,155 L 40,220" fill="none" strokeLinecap="round" />
-               <path d="M 110,155 L 120,240" fill="none" strokeLinecap="round" />
-            </g>
-
-            {/* Table Base & Leg */}
-            <path d="M 270,180 L 270,320" fill="none" strokeWidth="5" />
-            <ellipse cx="270" cy="325" rx="45" ry="10" />
-
-            {/* Table Top */}
-            <ellipse cx="270" cy="170" rx="100" ry="30" fill="#f4eedd" />
-
-            {/* Moka Pot (Resting on Table) */}
-            <g transform="translate(255, 95)">
-               {/* Bottom chamber */}
-               <polygon points="10,60 35,60 28,30 17,30" strokeLinejoin="round" />
-               <line x1="12" y1="30" x2="33" y2="30" strokeWidth="4" strokeLinecap="round" />
-               <polygon points="17,30 28,30 35,0 10,0" strokeLinejoin="round" />
-               <path d="M 8,0 L 37,0 L 28,-10 L 17,-10 Z" strokeLinejoin="round" />
-               <circle cx="22.5" cy="-15" r="3" />
-               <path d="M 35,15 C 55,5 55,40 35,35" fill="none" strokeLinecap="round" strokeWidth="4"/>
-               <path d="M 10,20 L -5,5 L 14,0" fill="none" strokeLinejoin="round" />
-            </g>
-         </svg>
+      <div className="absolute bottom-[8%] left-[12%] w-[280px] h-[200px] sm:bottom-[9%] sm:left-[15%] sm:w-[420px] sm:h-[300px] md:bottom-[10%] md:left-[18%] md:w-[580px] md:h-[400px] pointer-events-none z-10 block">
+         <img src={chairSvg} alt="Table and Chairs" className="w-full h-full object-contain object-bottom" />
       </div>
 
       {/* Center Typography & Floating "lets brew" Button */}
       <div className="absolute top-[18%] md:top-[15%] left-0 right-0 flex flex-col items-center px-4 z-20 pointer-events-auto">
         <h1 className="max-w-[95%] md:max-w-[74%] text-[1.95rem] md:text-[3.3rem] lg:text-[4.2rem] font-sans font-normal text-navy text-center tracking-tight leading-[1.08]">
-          You <span className="font-serif italic font-normal lowercase tracking-normal">deserve</span> more than,<br />
-          instant coffee <span className="font-serif italic font-normal lowercase tracking-normal">creativity</span>
+          Smash Into <span className="font-serif italic font-normal lowercase tracking-normal">real</span> Flavor <img src={burgerImg} alt="Burger" className="inline-block w-[1.1em] h-[1.1em] -translate-y-[0.1em] ml-1 drop-shadow-sm" />
         </h1>
         <p className="text-[0.98rem] md:text-[1.15rem] font-sans text-navy/80 font-medium text-center mt-4 tracking-tight max-w-xl leading-snug">
-          Our process takes a little more time and care, but the results?<br />
-          Worth every sip. (And no, we're not talking about coffee.)
+          Juicy, messy, unforgettable smash burgers made fresh daily with locally sourced ingredients.
         </p>
 
         {/* Floating Button Assembly - Positioned higher to ensure it sits safely above the table */}
@@ -139,10 +64,10 @@ const Hero = () => {
               <circle cx="20" cy="5" r="4" className="fill-cream" />
            </svg>
            <a
-             href="#contact"
+             href="#order"
              className="bg-navy text-cream px-6 py-2 rounded-full text-sm md:text-lg font-bold font-sans tracking-wide hover:-translate-y-[2px] transition-transform shadow-[4px_4px_0_0_rgba(0,36,104,0.1)]"
            >
-              lets brew
+              Order Now
            </a>
         </div>
       </div>

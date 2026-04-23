@@ -3,24 +3,24 @@ import { Rocket, Trees, RefreshCw, Layers } from 'lucide-react';
 
 const conceptualServices = [
   {
-    title: 'Launch',
-    description: 'We help brands launch bold flavors into the market, brewing connections with the right audience.',
-    icon: <Rocket size={48} strokeWidth={1} />,
+    title: 'Smash Technique',
+    description: 'Perfectly smashed patties for crispy edges and juicy centers',
+    icon: <span className="text-7xl md:text-[6rem]">🔥</span>,
   },
   {
-    title: 'Grow',
-    description: 'We blend brand narratives and visual storytelling to help businesses rise, just like a perfectly foamed cappuccino.',
-    icon: <Trees size={48} strokeWidth={1} />,
+    title: 'Locally Sourced Ingredients',
+    description: 'Fresh, high-quality ingredients sourced locally',
+    icon: <span className="text-7xl md:text-[6rem]">🥩</span>,
   },
   {
-    title: 'Transform',
-    description: 'We create strategic brand and digital makeovers to keep businesses fresh—like a barista refining their brew.',
-    icon: <RefreshCw size={48} strokeWidth={1} />,
+    title: 'Pocket-Friendly Pricing',
+    description: 'Premium taste without premium pricing',
+    icon: <span className="text-7xl md:text-[6rem]">💸</span>,
   },
   {
-    title: 'Re-Blend',
-    description: 'We reimagine chaotic brands into harmonious identities, ensuring every element works in perfect synergy.',
-    icon: <Layers size={48} strokeWidth={1} />,
+    title: 'Flavor-First Menu',
+    description: 'Every burger is crafted for maximum taste, not just looks',
+    icon: <span className="text-7xl md:text-[6rem]">🍔</span>,
   },
 ];
 
@@ -44,24 +44,22 @@ const Services = () => {
     <section id="menu" className="w-full bg-cream py-24 px-4 md:px-8 lg:px-12 text-navy">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-24">
-          <h2 className="text-5xl md:text-7xl font-serif mb-6">
-            How our brew <br/> <span className="italic">can help</span> your business
+          <h2 className="text-5xl md:text-7xl font-sans font-normal tracking-tight mb-6">
+            WHAT MAKES US <span className="font-serif italic font-light">DIFFERENT</span>
           </h2>
         </div>
 
         {/* Conceptual Services */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-40">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 mb-40">
           {conceptualServices.map((service, index) => (
-            <div key={index} className="flex flex-col md:flex-row gap-6 items-start hover:-translate-y-2 transition-transform duration-300">
-              <div className="text-navy flex-shrink-0">
+            <div key={index} className="flex flex-col items-start hover:-translate-y-2 transition-transform duration-300">
+              <div className="text-navy flex-shrink-0 mb-6 md:mb-10">
                 {service.icon}
               </div>
-              <div>
-                <h3 className="text-3xl font-serif mb-4">{service.title}</h3>
-                <p className="text-xl font-sans opacity-90 leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
+              <h3 className="text-4xl md:text-5xl font-serif italic mb-4 md:mb-6 tracking-tight text-navy">{service.title}</h3>
+              <p className="text-lg md:text-[1.1rem] font-sans text-navy/80 leading-relaxed font-light">
+                {service.description}
+              </p>
             </div>
           ))}
         </div>
