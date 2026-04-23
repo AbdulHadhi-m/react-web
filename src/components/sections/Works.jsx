@@ -88,7 +88,7 @@ const Works = () => {
           Have a <span className="font-serif italic text-navy font-light tracking-normal">taste</span>
         </h2>
         <p className="text-xl md:text-2xl font-sans text-navy/80 font-medium tracking-tight">
-          of our works
+          of perfection in every bite
         </p>
       </div>
 

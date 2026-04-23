@@ -2,85 +2,141 @@ import React, { useState } from 'react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '', email: '', company: '', phone: '', message: ''
+    name: '',
+    email: '',
+    location: '',
+    phone: '',
+    message: '',
   });
 
-  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Form submitted! (This is a UI demonstration)");
+    console.log('Form Submitted:', formData);
+    alert('Order query received! We will connect soon.');
   };
 
   return (
-    <section id="contact" className="w-full bg-cream py-10 md:py-20 px-3 md:px-8 text-navy relative overflow-hidden font-sans scroll-mt-24 md:scroll-mt-28">
-
-      <div className="max-w-5xl mx-auto relative mt-3 md:mt-10">
+    <section className="min-h-screen bg-[#F2EDE4] flex items-center justify-center p-4 md:p-10 font-sans">
+      {/* 1. Main Outer Container */}
+      <div className="relative w-full max-w-5xl p-4 md:p-10">
         
-        {/* Main Box Container */}
-        <div className="relative border-[3px] border-navy rounded-[6px] p-3 md:p-6 pt-6 md:pt-8 bg-cream w-full z-10"
-             style={{ borderRadius: "12px 12px 250px 12px / 12px 12px 15px 12px" }}>
-            
-            {/* Left pipe decoration */}
-            <div className="absolute top-[25%] left-[-28px] w-[24px] h-[350px] border-l-[4px] border-navy hidden lg:block border-radius-trick" style={{ borderRadius: "30% 10% 20% 40% / 10% 30% 40% 20%"}}>
-               {/* Top joint */}
-               <div className="absolute top-[20%] left-[-10px] w-[34px] h-[30px] bg-navy flex items-center justify-end rounded-l-[4px]">
-                  <div className="w-[12px] h-[40px] bg-navy rounded-sm absolute right-[-6px]"></div>
-               </div>
-               {/* Bottom joint */}
-               <div className="absolute bottom-[20%] left-[-10px] w-[34px] h-[30px] bg-navy flex items-center justify-end rounded-l-[4px]">
-                  <div className="w-[12px] h-[40px] bg-navy rounded-sm absolute right-[-6px]"></div>
-               </div>
+        {/* 2. Burger-Shaped Inner Frame */}
+        {/* The magic happens in the border-radius style below */}
+        <div 
+          className="relative w-full h-full bg-[#F2EDE4] px-6 py-12 md:px-20 md:py-16 transition-all duration-300 ease-in-out"
+          style={{
+            border: '5px solid #0A235C',
+            // Creates the asymmetric, "puffy bun" burger look.
+            borderRadius: '13% 18% 10% 8% / 15% 15% 30% 12%',
+          }}
+        >
+          
+          {/* 3. Left Side Graphic (Hinge/Pipe Detail - still matches the theme but thicker) */}
+          <div className="absolute left-[-18px] top-1/3 -translate-y-1/2 flex flex-col gap-28 hidden md:flex">
+            {/* Top Hinge */}
+            <div className="w-[32px] h-[50px] bg-[#0A235C] rounded-sm relative">
+                <div className="absolute left-[-14px] top-1/2 -translate-y-1/2 w-6 h-[7px] bg-[#0A235C]"></div>
+            </div>
+            {/* Bottom Hinge */}
+            <div className="w-[32px] h-[50px] bg-[#0A235C] rounded-sm relative">
+                <div className="absolute left-[-14px] top-1/2 -translate-y-1/2 w-6 h-[7px] bg-[#0A235C]"></div>
+            </div>
+          </div>
+
+          {/* 4. Heading Section */}
+          <div className="text-center mb-16">
+            <h2 className="text-[#0A235C] text-5xl md:text-7xl font-serif leading-[1.0] tracking-tighter">
+              Let's <span className="italic font-light">smash</span> together <br />
+              {/* burger together */}
+            </h2>
+            <p className="text-[#0A235C] mt-7 font-semibold tracking-[0.15em] text-xs md:text-sm uppercase opacity-90">
+              Fresh Ingredients. Your Taste. Our Craft.
+            </p>
+          </div>
+
+          {/* 5. Contact Form */}
+          <form onSubmit={handleSubmit} className="space-y-6 max-w-3xl mx-auto">
+            {/* Row 1: Name and Email */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="flex flex-col">
+                <label className="text-gray-400 text-[11px] uppercase font-bold mb-1.5 ml-1 tracking-widest">Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                  onChange={handleChange}
+                  className="bg-[#D9D6CE] p-4 rounded-md outline-none text-[#0A235C] placeholder:text-gray-500/60 transition-all focus:ring-1 focus:ring-[#0A235C]"
+                />
+              </div>
+              <div className="flex flex-col">
+                <label className="text-gray-400 text-[11px] uppercase font-bold mb-1.5 ml-1 tracking-widest">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Mail"
+                  required
+                  onChange={handleChange}
+                  className="bg-[#D9D6CE] p-4 rounded-md outline-none text-[#0A235C] placeholder:text-gray-500/60 transition-all focus:ring-1 focus:ring-[#0A235C]"
+                />
+              </div>
             </div>
 
-            <div className="text-center mb-5 md:mb-8 px-1 md:px-2">
-              <h2 className="text-[2.95rem] leading-[1.03] md:text-[4rem] font-sans text-navy mb-2 md:mb-4 font-normal tracking-tight">
-                Let's <span className="font-serif italic font-light lowercase text-[3.4rem] md:text-[4.6rem]">brew</span> the perfect<br />cup together
-              </h2>
-              <p className="text-xl md:text-2xl font-sans text-navy/80 font-medium tracking-tight mt-2 md:mt-3">
-                Your Business. Your Vision. Our Craft.
-              </p>
+            {/* Row 2: Location and Phone */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="flex flex-col">
+                <label className="text-gray-400 text-[11px] uppercase font-bold mb-1.5 ml-1 tracking-widest">Location</label>
+                <input
+                  type="text"
+                  name="location"
+                  placeholder="Your Location"
+                  onChange={handleChange}
+                  className="bg-[#D9D6CE] p-4 rounded-md outline-none text-[#0A235C] placeholder:text-gray-500/60 transition-all focus:ring-1 focus:ring-[#0A235C]"
+                />
+              </div>
+              <div className="flex flex-col">
+                <label className="text-gray-400 text-[11px] uppercase font-bold mb-1.5 ml-1 tracking-widest">Phone Number</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Your Number"
+                  onChange={handleChange}
+                  className="bg-[#D9D6CE] p-4 rounded-md outline-none text-[#0A235C] placeholder:text-gray-500/60 transition-all focus:ring-1 focus:ring-[#0A235C]"
+                />
+              </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="w-full max-w-4xl mx-auto space-y-6 md:space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-                <div className="flex flex-col gap-3">
-                  <label className="text-[12px] md:text-sm font-bold text-black/40 font-sans tracking-wide px-1 md:px-2">Name</label>
-                  <input type="text" name="name" placeholder="Your Name" onChange={handleChange} required className="w-full bg-[#d7d5ce] text-navy placeholder-black/30 px-4 py-3 rounded-[8px] outline-none focus:ring-2 focus:ring-navy transition-all font-sans text-sm md:text-base font-medium" />
-                </div>
-                <div className="flex flex-col gap-3">
-                  <label className="text-[12px] md:text-sm font-bold text-black/40 font-sans tracking-wide px-1 md:px-2">Email</label>
-                  <input type="email" name="email" placeholder="Your Mail" onChange={handleChange} required className="w-full bg-[#d7d5ce] text-navy placeholder-black/30 px-4 py-3 rounded-[8px] outline-none focus:ring-2 focus:ring-navy transition-all font-sans text-sm md:text-base font-medium" />
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-                 <div className="flex flex-col gap-3">
-                  <label className="text-[12px] md:text-sm font-bold text-black/40 font-sans tracking-wide px-1 md:px-2">Company Name</label>
-                  <input type="text" name="company" placeholder="Your Company Name" onChange={handleChange} className="w-full bg-[#d7d5ce] text-navy placeholder-black/30 px-4 py-3 rounded-[8px] outline-none focus:ring-2 focus:ring-navy transition-all font-sans text-sm md:text-base font-medium" />
-                </div>
-                <div className="flex flex-col gap-3">
-                  <label className="text-[12px] md:text-sm font-bold text-black/40 font-sans tracking-wide px-1 md:px-2">Phone Number</label>
-                  <input type="tel" name="phone" placeholder="Your Number" onChange={handleChange} className="w-full bg-[#d7d5ce] text-navy placeholder-black/30 px-4 py-3 rounded-[8px] outline-none focus:ring-2 focus:ring-navy transition-all font-sans text-sm md:text-base font-medium" />
-                </div>
-              </div>
+            {/* Row 3: Message */}
+            <div className="flex flex-col">
+              <label className="text-gray-400 text-[11px] uppercase font-bold mb-1.5 ml-1 tracking-widest">How can we help your order?</label>
+              <textarea
+                name="message"
+                rows="6"
+                placeholder="Type Your Message (e.g., specific burger requests)"
+                required
+                onChange={handleChange}
+                className="bg-[#D9D6CE] p-5 rounded-md outline-none text-[#0A235C] placeholder:text-gray-500/60 resize-none transition-all focus:ring-1 focus:ring-[#0A235C]"
+              />
+            </div>
 
-              <div className="flex flex-col gap-3">
-                <label className="text-[12px] md:text-sm font-bold text-black/40 font-sans tracking-wide px-1 md:px-2">How can we help you?</label>
-                <textarea name="message" placeholder="Type Your Message" onChange={handleChange} required className="w-full bg-[#d7d5ce] text-navy placeholder-black/30 px-4 py-3 rounded-[8px] outline-none focus:ring-2 focus:ring-navy transition-all font-sans resize-none h-[130px] md:h-[160px] text-sm md:text-base font-medium"></textarea>
-              </div>
-
-              <div className="text-center pt-2 md:pt-4">
-                 <button type="submit" className="w-full text-lg md:text-xl font-serif font-black italic text-cream bg-navy px-6 py-3 rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                   Submit Form
-                 </button>
-              </div>
-            </form>
-
+            {/* Submit Button */}
+            <div className="pt-3">
+              <button
+                type="submit"
+                className="w-full bg-[#0A235C] text-white font-bold py-5 rounded-md hover:bg-[#081d4a] transition-colors shadow-lg active:scale-[0.98]"
+              >
+                Submit Inquiry
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </section>
   );
 };
 
-export default Contact;
+export default Contact; 
