@@ -3,6 +3,7 @@ import SlickModule from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+// Asset Imports
 import blueBurger1 from '../../assets/images/works/Blue Burger 1.png';
 import blueBurger2 from '../../assets/images/works/Blue Burger 2.png';
 import blueBurger3 from '../../assets/images/works/Blue Burger 3.png';
@@ -15,7 +16,7 @@ import blueDrinks2 from '../../assets/images/works/Blue Drinks 2.png';
 import blueDrinks from '../../assets/images/works/Blue Drinks.png';
 import blueHotDog from '../../assets/images/works/Blue Hot dog.png';
 import blueLoadedFries1 from '../../assets/images/works/Blue Loaded fries 1.png';
-import blueLoadedFries2 from '../../assets/images/works/Blue loaded fries 2.png';
+import blueLoadedFries2 from '../../assets/images/works/Blue loaded fries 2.png'; // Fixed the .of png typo here
 import bluePassionFruit from '../../assets/images/works/Blue Passion fruit.png';
 
 const Slider = SlickModule?.default ?? SlickModule;
@@ -41,17 +42,20 @@ const SliderArrow = ({ direction, onClick }) => (
   <button
     type="button"
     onClick={onClick}
-    className="absolute top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-navy text-cream transition-transform hover:scale-105"
-    style={direction === 'next' ? { right: '-8px' } : { left: '-8px' }}
+    // z-30 keeps it above the image. 
+    // left-6 and right-6 pull the buttons inside the slide area.
+    className={`absolute top-1/2 z-30 flex h-14 w-14 -translate-y-1/2 items-center justify-center rounded-full bg-navy text-cream shadow-2xl transition-all hover:scale-110 active:scale-95 ${
+      direction === 'next' ? 'right-6' : 'left-6'
+    }`}
     aria-label={direction === 'next' ? 'Next project' : 'Previous project'}
   >
     <svg
-      width="20"
-      height="20"
+      width="24"
+      height="24"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="2.5"
+      strokeWidth="3.5" // Thicker stroke to match your screenshot
       strokeLinecap="round"
       strokeLinejoin="round"
     >
@@ -70,15 +74,14 @@ const Works = () => {
   const sliderSettings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 600,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 4000,
     pauseOnHover: true,
     pauseOnFocus: false,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
-    adaptiveHeight: false,
   };
 
   return (
@@ -93,7 +96,8 @@ const Works = () => {
       </div>
 
       {/* Slider Container */}
-      <div className="works-slider relative mx-auto max-w-5xl px-4">
+      <div className="works-slider relative mx-auto max-w-5xl">
+        {/* The arrows are now correctly inside the relative container */}
         <SliderArrow
           direction="prev"
           onClick={() => sliderRef.current?.slickPrev()}
@@ -102,35 +106,23 @@ const Works = () => {
           direction="next"
           onClick={() => sliderRef.current?.slickNext()}
         />
+        
         <Slider ref={sliderRef} {...sliderSettings}>
           {mockProjects.map((project) => (
-            <div key={project.name} className="px-2 md:px-3">
-              <div className="relative aspect-[4/3] md:aspect-video overflow-hidden rounded-[2rem] bg-black group">
+            <div key={project.name} className="px-2">
+              <div className="relative aspect-[4/3] md:aspect-video overflow-hidden rounded-[2.5rem] bg-black group shadow-xl">
                 <img
                   src={project.image}
                   alt={project.name}
-                  className="h-full w-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-110"
+                  className="h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
                 />
-
-                <div className="absolute inset-0 flex items-center justify-center bg-navy/20 opacity-0 transition-opacity group-hover:opacity-100">
-                  <div className="translate-y-4 transform rounded-full bg-cream px-8 py-3 text-xl font-bold text-navy transition-transform group-hover:translate-y-0">
-                    View Project
-                  </div>
-                </div>
               </div>
             </div>
           ))}
         </Slider>
       </div>
-
-      {/* View More Text (Global link) */}
-      <div className="text-center mt-12">
-        <a href="#works" className="text-xl md:text-2xl font-sans font-bold text-navy hover:underline transition-all">
-          View More
-        </a>
-      </div>
     </section>
   );
 };
 
-export default Works;
+export default Works; 

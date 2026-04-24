@@ -32,7 +32,11 @@ const Hero = () => {
       </div>
 
       {/* Shelf and Gramophone - Mid Right */}
-      <div className="absolute top-[40%] right-[0%] w-[200px] h-[160px] sm:top-[38%] sm:right-[0%] sm:w-[280px] sm:h-[220px] lg:top-[35%] lg:right-[0%] lg:w-[500px] lg:h-[380px] pointer-events-none z-10 block mix-blend-multiply">
+      {/* MOBILE FIX: 
+          top-[56%] keeps it at the height of your green mark.
+          right-[2%] moves it far to the right.
+      */}
+      <div className="absolute top-[56%] right-[2%] w-[200px] h-[160px] sm:top-[38%] sm:right-[0%] sm:w-[280px] sm:h-[220px] lg:top-[35%] lg:right-[0%] lg:w-[500px] lg:h-[380px] pointer-events-none z-10 block mix-blend-multiply">
          <video 
            src={musicVideo} 
            autoPlay 
@@ -57,7 +61,7 @@ const Hero = () => {
           Juicy, messy, unforgettable smash burgers made fresh daily with locally sourced ingredients.
         </p>
 
-        {/* Floating Button Assembly - Positioned higher to ensure it sits safely above the table */}
+        {/* Floating Button Assembly */}
         <div className="mt-6 md:mt-8 relative flex flex-col items-center group cursor-pointer z-30 pointer-events-auto">
            <svg width="40" height="20" viewBox="0 0 40 20" className="absolute top-[-18px] stroke-navy fill-none stroke-[3px] pointer-events-none">
               <path d="M0,20 L20,5 L40,20" strokeLinecap="round" strokeLinejoin="round" />
@@ -67,7 +71,7 @@ const Hero = () => {
              href="#order"
              className="bg-navy text-cream px-6 py-2 rounded-full text-sm md:text-lg font-bold font-sans tracking-wide hover:-translate-y-[2px] transition-transform shadow-[4px_4px_0_0_rgba(0,36,104,0.1)]"
            >
-              Order Now
+             Order Now
            </a>
         </div>
       </div>

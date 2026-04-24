@@ -72,7 +72,7 @@ const Footer = () => {
 
           {/* Footer Asterisks */}
           <div className="mt-24 text-3xl tracking-[0.3em] ">
-            ************** </div>
+            *********** </div>
         </div>
 
         {/* Bottom Right Illustration */}
