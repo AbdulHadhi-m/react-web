@@ -4,27 +4,42 @@ import bulbSvg from '../../assets/images/Bulb.svg';
 import chairSvg from '../../assets/images/Chair.svg';
 import burgerImg from '../../assets/images/burger.png';
 import musicVideo from '../../assets/videos/Music.mp4';
+import window2Svg from '../../assets/images/Windows2.svg';
 
 const Hero = () => {
 
   return (
-    <section className="relative w-full min-h-[740px] h-[100svh] bg-cream text-navy overflow-hidden font-sans border-b-[4px] border-navy">
-
+    <section className="relative w-full min-h-[740px] h-[100svh] bg-cream text-navy overflow-hidden font-sans">
       {/* 3D Room Lines (Responsive Full Screen SVG) */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" preserveAspectRatio="none">
-        {/* Corner Line */}
-        <line x1="18%" y1="0" x2="18%" y2="80%" stroke="rgb(0, 36, 104)" strokeWidth="4" />
-        {/* Floor Diagonal */}
-        <line x1="18%" y1="80%" x2="0" y2="100%" stroke="rgb(0, 36, 104)" strokeWidth="4" />
-        {/* Baseboard */}
-        <line x1="18%" y1="80%" x2="100%" y2="80%" stroke="rgb(0, 36, 104)" strokeWidth="4" />
-        {/* Lower Floor Line */}
-        <line x1="9%" y1="90%" x2="100%" y2="90%" stroke="rgb(0, 36, 104)" strokeWidth="4" />
+        {/* Desktop Lines */}
+        <g className="hidden md:block">
+          {/* Corner Line */}
+          <line x1="18%" y1="0" x2="18%" y2="80%" stroke="rgb(0, 36, 104)" strokeWidth="4" />
+          {/* Floor Diagonal */}
+          <line x1="18%" y1="80%" x2="0" y2="100%" stroke="rgb(0, 36, 104)" strokeWidth="4" />
+          {/* Baseboard */}
+          <line x1="18%" y1="80%" x2="100%" y2="80%" stroke="rgb(0, 36, 104)" strokeWidth="4" />
+          {/* Lower Floor Line */}
+          <line x1="9%" y1="90%" x2="100%" y2="90%" stroke="rgb(0, 36, 104)" strokeWidth="4" />
+        </g>
+        {/* Mobile Lines */}
+        <g className="block md:hidden">
+          <line x1="0" y1="76%" x2="100%" y2="76%" stroke="rgb(0, 36, 104)" strokeWidth="4" />
+          <line x1="0" y1="80%" x2="100%" y2="80%" stroke="rgb(0, 36, 104)" strokeWidth="4" />
+          <line x1="0" y1="84%" x2="100%" y2="84%" stroke="rgb(0, 36, 104)" strokeWidth="4" />
+          <line x1="0" y1="88%" x2="100%" y2="88%" stroke="rgb(0, 36, 104)" strokeWidth="4" />
+        </g>
       </svg>
 
       {/* Window on the Left Wall */}
-      <div className="absolute top-[2%] left-[-4%] w-[22%] h-[95%] md:top-[2%] md:left-[-4%] md:w-[22%] md:h-[95%] pointer-events-none z-0 block">
+      <div className="absolute top-[2%] left-[-4%] w-[22%] h-[95%] hidden md:block pointer-events-none z-0">
         <img src={windowSvg} alt="Window" className="w-full h-full object-fill" />
+      </div>
+      
+      {/* Mobile Window */}
+      <div className="absolute top-[40%] left-[-2%] w-[110px] h-[130px] block md:hidden pointer-events-none z-0">
+        <img src={window2Svg} alt="Window Mobile" className="w-full h-full object-contain" />
       </div>
 
       {/* Hanging Lamp - Top Right */}
@@ -37,7 +52,7 @@ const Hero = () => {
           top-[56%] keeps it at the height of your green mark.
           right-[2%] moves it far to the right.
       */}
-      <div className="absolute top-[56%] right-[2%] w-[200px] h-[160px] sm:top-[38%] sm:right-[0%] sm:w-[280px] sm:h-[220px] lg:top-[35%] lg:right-[0%] lg:w-[500px] lg:h-[380px] pointer-events-none z-10 block mix-blend-multiply">
+      <div className="absolute top-[48%] right-[-10%] w-[200px] h-[160px] sm:top-[38%] sm:right-[0%] sm:w-[280px] sm:h-[220px] lg:top-[35%] lg:right-[0%] lg:w-[500px] lg:h-[380px] pointer-events-none z-10 block mix-blend-multiply">
         <video
           src={musicVideo}
           autoPlay
@@ -51,7 +66,7 @@ const Hero = () => {
 
       {/* Table, Chairs & Moka Pot - Bottom Center Left */}
 
-      <div className="absolute bottom-[8%] left-[12%] w-[280px] h-[200px] sm:bottom-[9%] sm:left-[15%] sm:w-[420px] sm:h-[300px] md:bottom-[10%] md:left-[18%] md:w-[580px] md:h-[400px] pointer-events-none z-10 block">
+      <div className="absolute bottom-[16%] left-1/2 -translate-x-1/2 w-[280px] h-[200px] sm:bottom-[9%] sm:left-[15%] sm:translate-x-0 sm:w-[420px] sm:h-[300px] md:bottom-[10%] md:left-[18%] md:w-[580px] md:h-[400px] pointer-events-none z-10 block">
         <img src={chairSvg} alt="Table and Chairs" className="w-full h-full object-contain object-bottom" />
       </div>
 
