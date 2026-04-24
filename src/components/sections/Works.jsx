@@ -85,7 +85,7 @@ const Works = () => {
   };
 
   return (
-    <section id="works" className="w-full bg-cream py-24 md:py-28 px-4 md:px-8 text-navy relative scroll-mt-28">
+    <section id="works" className="w-full bg-cream pt-8 pb-24 md:pt-12 md:pb-28 px-4 md:px-8 text-navy relative scroll-mt-28">
       <div className="max-w-7xl mx-auto text-center mb-16">
         <h2 className="text-[2.6rem] md:text-[4.2rem] lg:text-[5.2rem] font-sans font-normal text-navy tracking-tight leading-none mb-4">
           Have a <span className="font-serif italic text-navy font-light tracking-normal">taste</span>
